@@ -6,8 +6,13 @@ Vue.use(VueRouter)
 
 export const router = new VueRouter({routes , mode: 'history'});
 
+router.beforeEach((to,from,next) => {
+  console.log('beforeEach');
+  next();
+})
+
 new Vue({
   el: '#app',
   router,
   render: h => h(App)
-})
+});
